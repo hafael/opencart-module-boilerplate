@@ -16,7 +16,7 @@ exit(0);
 }
 
 if (
-    (count($argv)!=2)  OR
+    (count($argv) < 2 || count($argv) > 3)  OR
     (!ctype_alpha(str_replace("_","",$argv[1]))) OR
     (!ctype_lower(str_replace("_","",$argv[1])))
     ) usage();
@@ -24,9 +24,11 @@ if (
 define('MODULE', $argv[1]);
 if(isset($argv[2]))
 {
-    define('DIR_PREFIX', $argv[2] . '/' . MODULE . '.ocmod');
+    define('ROOT_DIR', $argv[2] . '/');
+    define('DIR_PREFIX', ROOT_DIR . MODULE . '.ocmod');
 }else {
-    define('DIR_PREFIX', './'. MODULE . '.ocmod');
+    define('ROOT_DIR', './');
+    define('DIR_PREFIX', ROOT_DIR . MODULE . '.ocmod');
 }
 
 
@@ -1003,7 +1005,7 @@ foreach ($files as $file) {
         $pathdir = realpath(DIR_PREFIX); 
         
         // Enter the name to creating zipped directory
-        $zipcreated = MODULE . ".ocmod.zip";
+        $zipcreated = ROOT_DIR . MODULE . ".ocmod.zip";
         
         // Create new zip class
         $zip = new ZipArchive;
