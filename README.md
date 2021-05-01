@@ -1,21 +1,29 @@
 opencart-module-boilerplate
 ===========================
 
-Creates all needed files for new opencart module.
+Creates all needed files for new OpenCart 3+ module.
 
 I mean this ones:
 
-catalog/controller/module/module_name.php 
+install.xml
 
-catalog/language/english/module/module_name.php
+upload/catalog/controller/extension/module/module_name.php 
 
-catalog/view/theme/default/template/module/module_name.tpl
+upload/catalog/language/en-gb/extension/module/module_name.php
 
-admin/controller/module/module_name.php
+upload/catalog/view/theme/default/template/extension/module/module_name.twig
 
-admin/language/english/module/module_name.php
+upload/admin/controller/extension/module/module_name.php
 
-admin/view/template/module/module_name.tpl
+upload/admin/language/en-gb/extension/module/module_name.php
+
+upload/admin/view/template/extension/module/module_name.twig
+
+README.md
+
+LICENSE (GNU 3)
+
+module_name.ocmod.zip
 
 
 ===========================
@@ -24,13 +32,10 @@ Usage:
 
 * Copy oc-module.php to OpenCart root folder
 * execute from console 
-  *  ```php-cli oc-module.php <module_name>``` in linux
-  *  ```php.exe oc-module.php <module_name>``` in windows
-* That's it. Files === created.
+  *  ```php-cli oc-module.php <module_name> <optional_dir_prefix>``` in linux
+  *  ```php.exe oc-module.php <module_name> <optional_dir_prefix>``` in windows
+* That's it.
 
 ===========================
 
 However, be careful: this script will overwrite any existing files (if modulename clashes e.g.)
-
-And finally: By looking at templates it must be suitable for opencarts v1.5.x and, 
-I believe, below. v2 templates are different a bit, but layout are similar.
